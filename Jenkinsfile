@@ -3,6 +3,14 @@ pipeline {
 
     stages {
 
+        stage('SCM') {
+	   steps {
+		echo 'Gathering code from version control'
+		git branch: '${branch}', url: 'https://github.com/trussbtech/Javav-maven-HelloWorld.git'
+	   }
+        }
+
+
         stage ('Build') {
           steps {
 			sh 'mvn --version'
